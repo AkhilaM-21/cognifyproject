@@ -21,15 +21,17 @@ app.listen(port,()=>{
 
 });
 
-const db=mysql.createConnection(
-    {
-        host:'localhost',
-        user:'root',
-        password:'Akhila',
-        database:'register'
+require('dotenv').config();
 
-    }
-)
+const dbUrl = new URL(process.env.DATABASE_URL);
+
+const connection = mysql.createConnection({
+  host: dbUrl.hostname,
+  user: dbUrl.username,
+  password: dbUrl.password,
+  database: dbUrl.pathname.replace('/', ''),
+  port: dbUrl.port
+});
 db.connect((err)=>
 {
     if(err)
