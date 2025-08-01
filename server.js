@@ -25,7 +25,7 @@ require('dotenv').config();
 
 const dbUrl = new URL(process.env.DATABASE_URL);
 
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
   host: dbUrl.hostname,
   user: dbUrl.username,
   password: dbUrl.password,
