@@ -11,7 +11,7 @@ form.addEventListener('submit', (e) => {
     const investment = document.getElementById("investment").value.trim();
 
     if (validate()) {
-        fetch("http://localhost:8000/register", {
+        fetch("https://cognifyproject.onrender.com", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
