@@ -30,7 +30,8 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
-  allowPublicKeyRetrieval: true
+  allowPublicKeyRetrieval: true,
+     ssl: false
 });
 db.connect((err)=>
 {
