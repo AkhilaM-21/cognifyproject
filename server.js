@@ -51,8 +51,9 @@ app.get('/',(req,res)=>
     res.render("Register");
 });
 app.get('/login', (req, res) => {
-  res.render('login'); 
+  res.render('login', { success: req.query.success || null });
 });
+
 
 
 app.get('/register', (req, res) => {
@@ -73,7 +74,7 @@ app.post('/register', (req, res) => {
       }
       return res.status(500).json({ error: 'Server error' });
     }
-    res.status(200).json({ message: 'Success' });
+    res.redirect('/login?success=1');
   });
 });
 
