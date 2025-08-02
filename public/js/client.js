@@ -26,14 +26,18 @@ form.addEventListener('submit', (e) => {
         .then(response => {
             if (response.status === 409) {
                 // Duplicate phone number
+                const errorData = await response.json();
                 const phoneError = document.getElementById("phonenumber_error");
                 phoneError.textContent = "Phone number already exists!";
                 phoneError.style.display = "block";
             } else if (response.ok) {
                 alert("Registered successfully");
-                window.location.href = "/"; // redirect to home or reload
+                window.location.href = "/login"; // redirect to home or reload
             } else {
-                alert("Registration failed. Please try again.");
+                const errorData = await response.json();
+                console.error("Server error:", errorData);
+                alert("Registration failed: " + (errorData.error || "Please try again."));
+               
             }
         })
         .catch(err => {
