@@ -31,6 +31,7 @@ const db = mysql.createConnection({
   password: dbUrl.password,
   database: dbUrl.pathname.replace('/', ''),
   port: dbUrl.port
+  allowPublicKeyRetrieval: true
 });
 db.connect((err)=>
 {
