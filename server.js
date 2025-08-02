@@ -36,7 +36,7 @@ db.connect((err)=>
 {
     if(err)
     {
-        console.log("Error at connection")
+        console.log("Error at connection",err)
         return
     }
     console.log("sucessully connected");
