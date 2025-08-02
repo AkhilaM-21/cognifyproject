@@ -63,6 +63,7 @@ app.post('/register', (req, res) => {
 
   db.query(query, [farmername, phonenumber, password, land, income, investment], (err, result) => {
     if (err) {
+        console.error("Database error:", err);
       if (err.code === 'ER_DUP_ENTRY') {
         return res.status(409).json({ error: 'Phone number already exists' });
       }
