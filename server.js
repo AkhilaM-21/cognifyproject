@@ -21,18 +21,16 @@ app.listen(port,()=>{
 
 });
 
-require('dotenv').config();
-
-
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: Number(process.env.DB_PORT), 
+  host: 'trolley.proxy.rlwy.net',
+  port: 14998,
+  user: 'root',
+  password: 'qEYFmhdmHxFYTKPjPGgefEqDtJSgFrTT',
+  database: 'railway',
   allowPublicKeyRetrieval: true,
   ssl: false
 });
+
 
 db.connect((err)=>
 {
